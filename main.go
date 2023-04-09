@@ -6,6 +6,7 @@ func main() {
 	conferenceName := "Go Conference"
 	const conferenceTickets = 50
 	var remainingTickets uint = 50
+	var bookings []string
 
 	fmt.Printf("Welcome to %v booking application\n", conferenceName)
 	fmt.Printf("We have total of %v tickets and %v are still available\n", conferenceTickets, remainingTickets)
@@ -28,5 +29,13 @@ func main() {
 	fmt.Println("Enter the number of tickets")
 	fmt.Scan(&userTickets)
 
+	remainingTickets = remainingTickets - uint(userTickets)
+
+	bookings = append(bookings, firstName+" "+lastName)
+
+	fmt.Printf("The whole value of slice is %v\n", bookings)
+	fmt.Printf("The type of slice is %T\n", bookings)
+
 	fmt.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
+	fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
 }
